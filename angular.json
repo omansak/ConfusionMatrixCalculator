@@ -121,8 +121,13 @@
               "devServerTarget": "confusion-matrix-calculator:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "confusion-matrix-calculator"
 }
