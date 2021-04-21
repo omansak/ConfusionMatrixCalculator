@@ -1,5 +1,5 @@
 # ConfusionMatrixCalculator
-Compute metrics on your classification like accuracy, Recall, specificity
+Compute metrics on your classification like accuracy, recall, specificity
 
 # Demo
 https://omansak.github.io/ConfusionMatrixCalculator/
