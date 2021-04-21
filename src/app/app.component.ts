@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   initConfusionMatrix(size: number) {
+    this.messages = null;
     this.matrix = Array.from(Array(size), () => Array.from(Array(size)));
   }
 
