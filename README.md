@@ -4,6 +4,8 @@ Compute metrics on your classification like accuracy, recall, specificity
 # Demo
 https://omansak.github.io/ConfusionMatrixCalculator/
 
+![Demo](https://github.com/omansak/ConfusionMatrixCalculator/blob/master/src/assets/Screenshot_1.png)
+
 # Metrics
 - True Positive
 - True Negative
