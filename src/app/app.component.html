@@ -7,32 +7,33 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Matrix Size</span>
       </div>
-      <input type="number" [(ngModel)]="matrixSize" class="form-control" />
-      <button class="btn btn-primary" (click)="createConfusionMatrix()">Create</button>
+      <input type="number" [(ngModel)]="matrixSize" (ngModelChange)="createConfusionMatrix()" class="form-control" />
     </div>
   </div>
   <div class="row my-2">
     <table class="table table-bordered">
       <tbody>
         <tr>
-          <td [attr.colspan]="matrix.length + 2">
+          <td [attr.colspan]="matrixSize + 2">
             <h5 class="text-center">Actual/True Data</h5>
           </td>
         </tr>
         <tr>
           <th scope="col"></th>
           <th scope="col">#</th>
-          <td *ngFor="let row of matrix;let i = index;" class="text-center align-middle"><b>{{i}}</b></td>
+          <td *ngFor="let row of counter(matrixSize)let i = index;" class="text-center align-middle"><b>{{i}}</b></td>
         </tr>
         <tr>
-          <td [attr.rowspan]="matrix.length + 2" class="text-center align-middle">
+          <td [attr.rowspan]="matrixSize + 2" class="text-center align-middle">
             <h5 style="writing-mode: vertical-rl;transform:scale(-1);">Predict Data</h5>
           </td>
         </tr>
         <tr *ngFor="let row of counter(matrixSize);let i = index;" scope="row">
           <th class="text-center align-middle" scope="row"><b>{{i}}</b></th>
-          <td *ngFor="let col of counter(matrixSize);let j = index;">
-            <input type="number" [(ngModel)]="matrix[i][j]" class="form-control" (ngModelChange)="calculateAccuracyValues()" />
+          <td *ngFor="let col of counter(matrixSize);let j = index;" [attr.id]="'cell_' + i + '_' + j"
+            (mouseenter)="fillColorCell(i,j)" (mouseleave)="resetColorCells()">
+            <input type="number" [(ngModel)]="matrix[i][j]" class="form-control"
+              (ngModelChange)="calculateAccuracyValues()" />
           </td>
         </tr>
       </tbody>

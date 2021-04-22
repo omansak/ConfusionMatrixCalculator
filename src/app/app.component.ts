@@ -3,7 +3,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'osk-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
@@ -97,7 +96,7 @@ export class AppComponent implements OnInit {
     messages.push(`Macro F1 : ${(totalFMeasure) / this.matrixSize}`);
     setTimeout(() => this.messages = messages, 32);
   }
-
+  //Methods
   calculateTruePosition(index: number): number {
     return this.matrix[index][index];
   }
@@ -156,5 +155,37 @@ export class AppComponent implements OnInit {
 
   calculateFMeasure(precision: number, recall: number) {
     return (2 * precision * recall) / (precision + recall);
+  }
+
+  //Visuals
+  fillColorCell(x, y) {
+    this.resetColorCells();
+    for (let i = 0; i < this.matrixSize; i++) {
+      for (let j = 0; j < this.matrixSize; j++) {
+        let el = document.querySelector('#cell_' + i + '_' + j);
+        if (i == x && j == y) {
+          el.classList.add('bg-success');
+          console.log(i, j)
+        }
+        if (i != x && j != y) {
+          el.classList.add('bg-info');
+        }
+        if (i == x && j != y) {
+          el.classList.add('bg-warning');
+        }
+        if (i != x && j == y) {
+          el.classList.add('bg-danger');
+        }
+      }
+    }
+  }
+
+  resetColorCells() {
+    for (let i = 0; i < this.matrixSize; i++) {
+      for (let j = 0; j < this.matrixSize; j++) {
+        document.querySelector('#cell_' + i + '_' + j).className = '';
+      }
+    }
+
   }
 }
