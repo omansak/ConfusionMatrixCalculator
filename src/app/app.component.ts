@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   public matrixSize: number;
   public matrix: Array<Array<number>>;
   public messages: Array<string>;
-
+  public counter = Array;
   ngOnInit(): void {
     //Defaults
     this.matrixSize = 3;

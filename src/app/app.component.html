@@ -29,10 +29,10 @@
             <h5 style="writing-mode: vertical-rl;transform:scale(-1);">Predict Data</h5>
           </td>
         </tr>
-        <tr *ngFor="let row of matrix;let i = index;" scope="row">
+        <tr *ngFor="let row of counter(matrixSize);let i = index;" scope="row">
           <th class="text-center align-middle" scope="row"><b>{{i}}</b></th>
-          <td *ngFor="let col of row;let j = index;">
-            <input type="number" [(ngModel)]="matrix[i][j]" class="form-control" (change)="calculateAccuracyValues()" />
+          <td *ngFor="let col of counter(matrixSize);let j = index;">
+            <input type="number" [(ngModel)]="matrix[i][j]" class="form-control" (ngModelChange)="calculateAccuracyValues()" />
           </td>
         </tr>
       </tbody>
